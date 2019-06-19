@@ -1,0 +1,11 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+# This can be removed: docker compose has volume mounting: but keep it for future
+COPY . .
+
+CMD ["npm", "run", "start"]
